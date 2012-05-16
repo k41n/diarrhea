@@ -1,0 +1,13 @@
+- run = run_status if run_status.present?
+Запуск #{run.created_at.strftime('%Y.%m.%d %H:%M')}
+%br
+Выполнение: #{'%0.2f' % (run.scenarios.where(:completed => true).count.to_f / run.scenarios.count.to_f * 100.0)} %
+%br
+-if run.completed?
+  Продолжительность: #{distance_of_time_in_words(run.created_at, run.completed_at)}
+- else
+  Продолжительность: #{distance_of_time_in_words_to_now(run.created_at)}
+- if run.completed? and run.completed_at.present?
+  Сборка завершена в #{run.completed_at.strftime('%Y.%m.%d %H:%M')} за #{run.completed_at - run.created_at}
+%br
+  = "Всего #{run.scenarios.where(:failed=>true).count} сломанных сценариев"

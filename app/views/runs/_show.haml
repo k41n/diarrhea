@@ -1,0 +1,6 @@
+%h1{:style=> 'text-align: center'}
+  #{@run.project.name} build #{@run.id}
+= @run.comment if @run.comment.present?
+%div{:id=>'run_status'}
+  = render :partial => 'run_status', :object => @run
+= render @run.feature_files

@@ -1,0 +1,4 @@
+$('#ping_info').html("#{j(render :partial => 'nodes/ping_status')}");
+$('#nodes').html("#{j(render :partial => 'dashboard/nodes')}");
+$('#console').append("#{"<h4 style='text-align:center'>PREPARED!!!</h4>".html_safe}");
+$("#console").animate({ scrollTop: $("#console").prop("scrollHeight") - $('#console').height() + 10 }, 200);

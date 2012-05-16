@@ -1,0 +1,5 @@
+%div{:style=>'color: white; background: black'}
+  %h1
+    = @scenario.name
+  %p
+    = escape_to_html(@scenario.stdout).html_safe unless @scenario.stdout.nil?

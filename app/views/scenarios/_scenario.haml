@@ -1,0 +1,12 @@
+%div{:id=>"scenario_#{scenario.id}", :class=>"#{scenario.cssclass}"}
+  = link_to image_tag('rerun.png',:size=>'32x32'), "/scenarios/#{scenario.id}/rerun", :remote=>true, :style=>'float: right'
+  = link_to image_tag('text.png',:size=>'32x32'), "/scenarios/#{scenario.id}", :remote=>true, :style=>'float: right'
+  = image_tag("ajax.gif", :style=>'float: left') if scenario.started?
+  #{scenario.name} [#{scenario.node.name unless scenario.node.nil?}]
+  - if scenario.failures > 0
+    %div{:style=>'float: right; font-size: 32px; color: red'}
+      = scenario.failures
+  .scenario_console{:id => "scenario_console_#{scenario.id}", :style => 'display: none'}
+- if scenario.started? and not scenario.completed?
+  :javascript
+    setTimeout(function(){$.ajax("/scenarios/#{scenario.id}/ajaxupdate")},10000);

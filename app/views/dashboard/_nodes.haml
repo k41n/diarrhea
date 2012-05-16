@@ -1,0 +1,5 @@
+= link_to "ОНЛАЙН (#{Node.alive.count})", alive_nodes_path, :remote=>true, :class=>'green_nodes_link'
+= link_to "ОФФЛАЙН (#{Node.dead.count})", dead_nodes_path, :remote=>true, :class=>'red_nodes_link'
+= link_to "В РАБОТЕ (#{Node.locked.count})", locked_nodes_path, :remote=>true, :class=>'orange_nodes_link'
+= link_to "ВCЕ (#{Node.all.count})", nodes_path, :remote=>true, :class=>'new_link'
+= link_to "НОВЫЙ УЗЕЛ", new_node_path, :remote=>true, :class=>'new_link'

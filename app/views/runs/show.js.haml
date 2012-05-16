@@ -1,0 +1,4 @@
+- @run = Run.find(params[:id])
+= content_to 'show'
+- if @run.started? and not @run.completed?
+  enable_run_periodic_refresh(#{@run.id});

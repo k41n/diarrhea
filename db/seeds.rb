@@ -1,0 +1,6 @@
+Node.create(:host=>'127.0.0.1', :port=>2222, :user=>'tester', :name=>'instance1')
+Node.create(:host=>'127.0.0.1', :port=>2223, :user=>'tester', :name=>'instance2')
+Node.create(:host=>'dd.kodep.ru', :port=>2222, :user=>'tester', :name=>'dd')
+Node.create(:host=>'62.33.107.35', :port=>2222, :user=>'tester', :name=>'tesley')
+Node.create(:host=>'62.33.107.35', :port=>2022, :user=>'tester', :name=>'malyshev')
+Project.create(:name=>'optfiber', :folder=>'optfiber', :repo=>'git@git.kodep.ru:optfiber')

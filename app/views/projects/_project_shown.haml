@@ -1,0 +1,12 @@
+- project = project_shown
+%div{:id=>"project_shown_#{project.id}"}
+  %h1
+    = project.name
+  = project.status if project.locked?
+  - if File.exists?("#{Rails.root}/projects/#{project.folder}") and File.exists?("#{Rails.root}/projects/#{project.folder}/.git")
+    Инициализирован
+    = link_to "Обновить", pull_project_path(project), :remote=>true
+    = link_to "Запустить", run_project_path(project)
+  - else
+    Проект еще не инициализирован
+    = link_to "Инциализировать", init_project_path(project), :remote=>true

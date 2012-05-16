@@ -1,0 +1,6 @@
+.project{:id=>"project_#{project.id}"}
+  = link_to image_tag('run.png', :size=>'64x64'), run_project_path(project), :remote => true, :style=>'float: right'
+  %h2
+    = link_to project.name, project_path(project)
+  = project.status if project.locked?
+

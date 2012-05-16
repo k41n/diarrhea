@@ -1,0 +1,4 @@
+- node = @node = Node.find(params[:id])
+- node.make_ping
+$('#ping_info').html("#{j(render :partial => 'nodes/ping_status')}");
+$('#nodes').html("#{j(render :partial => 'dashboard/nodes')}");

@@ -1,0 +1,13 @@
+#all
+  #left
+    #projects
+      = render Project.all
+    #runs
+      = render :partial => 'dashboard/runs'
+    #nodes
+      = render :partial => 'dashboard/nodes'
+    = link_to image_tag('stop.png'), stop_runs_path, :remote => true, :class => 'bigbutton'
+    = link_to image_tag('prepare.png'), prepare_all_nodes_path, :remote => true, :class => 'bigbutton'
+    = link_to image_tag('gear.png'), bundle_nodes_path, :remote => true, :class => 'bigbutton'
+    = link_to image_tag('gear.png'), updatedb_all_nodes_path, :remote => true, :class => 'bigbutton'
+  #content

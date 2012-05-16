@@ -1,0 +1,17 @@
+= image_tag('spinner.gif', :size=>'64x64', :style=>'display:none; float: right', :id=>'spinner')
+= link_to_function image_tag('ping.png', :size => '64x64'), "ping_node(#{@node.id})", :remote => true, :title=>'ПИНГ', :style=>'float: right', :id=>'ping_link'
+= link_to_function image_tag('clear.png', :size => '64x64'), "clear_node(#{@node.id})", :remote => true, :title=>'ОЧИСТКА', :style=>'float: right', :id=>'clear_link'
+= link_to_function image_tag('prepare.png', :size => '64x64'), "prepare_node(#{@node.id})", :remote => true, :title=>'ПОДГОТОВИТЬ', :style=>'float: right', :id=>'prepare_link'
+%h3
+  Сетевой статус
+%br
+- if @node.ping.present?
+  Пинг:
+  #{'%0.2f' % @node.ping} с
+  %br
+  Нагрузка:
+  #{'%0.2f' % @node.load5} #{'%0.2f' % @node.load10} #{'%0.2f' % @node.load15}
+- else
+  ОФФЛАЙН
+  %br
+  = @node.last_error

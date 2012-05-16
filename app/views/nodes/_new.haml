@@ -1,0 +1,14 @@
+= form_for Node.new(:port => 22, :user => 'tester'), :remote => true do |form|
+  = form.label :name, "Название"
+  = form.text_field :name
+  %br
+  = form.label :host, "Имя или IP адрес"
+  = form.text_field :host
+  %br
+  = form.label :port, "Порт"
+  = form.text_field :port
+  %br
+  = form.label :user, "Пользователь"
+  = form.text_field :user
+  %br
+  = submit_tag "Создать"

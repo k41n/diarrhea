@@ -1,0 +1,9 @@
+%h1
+  = @node.name
+= @node.host
+%br
+#ping_info
+  = render :partial => 'ping_status'
+#console
+= form_for [@node, Command.new], :remote => true do |form|
+  = form.text_field :cmdline

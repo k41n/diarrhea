@@ -1,0 +1,11 @@
+= form_for Project.new do |form|
+  = form.label :name, "Название"
+  = form.text_field :name
+  %br
+  = form.label :folder, "Папка"
+  = form.text_field :folder
+  %br
+  = form.label :repo, "Репозиторий"
+  = form.text_field :repo
+  %br
+  = submit_tag "Создать"

@@ -1,0 +1,4 @@
+$('#command_cmdline').val('');
+$('#console').append("#{j(render @command)}");
+$("#console").animate({ scrollTop: $("#console").prop("scrollHeight") - $('#console').height() + 10 }, 200);
+$('#command_cmdline').focus();

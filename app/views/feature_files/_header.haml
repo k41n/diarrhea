@@ -1,0 +1,20 @@
+- feature_file = header
+- all_succeeded = feature_file.scenarios.all?{|x| x.succeeded?}
+- any_failed = feature_file.scenarios.any?{|x| x.failed?}
+%div{:class => "#{"green" if all_succeeded} #{"red" if any_failed}", :style => 'display: inline-block'}
+  = feature_file.name.split('/').last
+%b{:style=>'float:right'}
+  .gray
+    #{feature_file.scenarios.pending.count}
+  = "/"
+  .black
+    #{feature_file.scenarios.running.count}
+  = "/"
+  .green
+    #{feature_file.scenarios.succeeded.count}
+  = "/"
+  .red
+    #{feature_file.scenarios.failed.count}
+  = "/"
+  .unknown
+    #{feature_file.scenarios.unknown.count}

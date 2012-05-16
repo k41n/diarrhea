@@ -1,0 +1,13 @@
+.run{:id=>"run_#{run.id}", :onclick => "$.ajax('/runs/#{run.id}/')"}
+  = image_tag('spinner.gif', :size=>'16x16') if run.started? and not run.completed?
+  #{run.project.name} build #{run.id}
+  %br
+  запущен #{run.created_at.strftime("%Y.%m.%d %H:%M")}
+  - if run.completed?
+    Продолжительность: #{distance_of_time_in_words(run.created_at, run.completed_at)}
+    - if run.scenarios.count == run.scenarios.succeeded.count
+      УСПЕХ
+    - else
+      НЕУДАЧА
+
+

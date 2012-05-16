@@ -1,0 +1,4 @@
+.feature_file{:id=>"feature_file_#{feature_file.id}"}
+  %div{:onclick => "show_scenarios(#{feature_file.id})", :id => "header_#{feature_file.id}"}
+    = render :partial => 'feature_files/header', :object => feature_file
+  %div{:id=>"scenarios_for_feature_#{feature_file.id}"}

@@ -1,0 +1,15 @@
+.node{:id=>"node_#{node.id}"}
+  = link_to image_tag('delete.png', :size=>'64x64'), "/nodes/#{node.id}", :remote => true, :style=>'float: right', :method => :delete, :confirm => 'Действительно удалить узел?'
+  = link_to image_tag('edit.png', :size=>'64x64'), "/nodes/#{node.id}/edit", :remote => true, :style=>'float: right'
+  = link_to image_tag('show.png', :size=>'64x64'), "/nodes/#{node.id}", :remote => true, :style=>'float: right'
+  %h2
+    = node.name
+  = node.status if node.locked?
+  %div{:id=>"ping_result"}
+    - if node.ping
+      = "%0.2f с" % node.ping
+      - if node.load5.present?
+        %br
+        #{'%0.2f' % node.load5} #{'%0.2f' % node.load10} #{'%0.2f' % node.load15}
+    - else
+      Узел недоступен

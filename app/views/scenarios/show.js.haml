@@ -1,0 +1,10 @@
+- @scenario = Scenario.find(params[:id])
+if ($("#scenario_console_#{@scenario.id}").is(':visible'))
+{
+$("#scenario_console_#{@scenario.id}").hide();
+}
+else
+{
+$("#scenario_console_#{@scenario.id}").html("#{j(render :partial => 'show')}");
+$("#scenario_console_#{@scenario.id}").show();
+}
